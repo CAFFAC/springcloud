@@ -1,5 +1,13 @@
 server:
     port: 8761
+spring:
+    security:
+       basic:
+          enabled: true
+       user:
+         name: caffac
+         password: cheng1990
+
 eureka:
     instance:
       hostname: localhost
@@ -8,3 +16,5 @@ eureka:
         fetchRegistry: false
         serviceUrl:
             defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    server:
+      eviction-interval-timer-in-ms: 5000
