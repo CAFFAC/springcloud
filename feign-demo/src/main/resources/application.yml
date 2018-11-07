@@ -1,0 +1,29 @@
+
+server:
+  port: 8010
+spring:
+  application:
+    name: ch4-1-hello
+
+logging:
+     level:
+       cn.springcloud.book.feign.service.HelloFeignService: debug
+
+feign:
+    compression:
+        request:
+            enabled: true
+            mime-types: text/xml,application/xml,application/json # 配置压缩支持的MIME TYPE
+            min-request-size: 2048  # 配置压缩数据大小的下限
+        response:
+            enabled: true # 配置响应GZIP压缩
+    client:
+      config:
+         github-client:
+            connectTimeout: 1000
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+
