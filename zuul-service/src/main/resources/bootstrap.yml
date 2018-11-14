@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: zuul-server
+  datasource:
+    url: jdbc:mysql://101.200.35.129:3306/springcloud?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+server:
+  port: 5555
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://caffac:cheng1990@${eureka.host:localhost}:${eureka.port:8761}/eureka/
+  instance:
+    prefer-ip-address: true
+
+ribbon:
+  eureka:
+    enabled: true

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: ribbon-loadbalancer
+server:
+  port: 7777
+eureka:
+  client:
+    register-with-eureka: false #客户端不注册到eureka，只是进行服务的调用
+    serviceUrl:
+      defaultZone: http://caffac:cheng1990@${eureka.host:127.0.0.1}:${eureka.port:8761}/eureka/
+  instance:
+    prefer-ip-address: true

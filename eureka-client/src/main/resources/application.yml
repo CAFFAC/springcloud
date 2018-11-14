@@ -2,7 +2,7 @@ server:
   port: 8763
 spring:
   application:
-    name: demo-client1
+    name: eureka-client
 eureka:
   client:
     security:
@@ -11,4 +11,5 @@ eureka:
         password: cheng1990
     serviceUrl:
       defaultZone: http://${eureka.client.security.basic.user}:${eureka.client.security.basic.password}@localhost:8761/eureka/
-
+  instance:
+    prefer-ip-address: true

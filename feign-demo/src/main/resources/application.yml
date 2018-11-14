@@ -1,15 +1,18 @@
 
 server:
   port: 8010
+
 spring:
   application:
-    name: ch4-1-hello
+    name: client-a
 
 logging:
      level:
        cn.springcloud.book.feign.service.HelloFeignService: debug
 
 feign:
+    hystrix:
+        enabled: true #开启hystrix
     compression:
         request:
             enabled: true
@@ -17,13 +20,22 @@ feign:
             min-request-size: 2048  # 配置压缩数据大小的下限
         response:
             enabled: true # 配置响应GZIP压缩
-    client:
-      config:
-         github-client:
-            connectTimeout: 1000
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+         defaultZone: http://caffac:cheng1990@localhost:8761/eureka
+
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+
+
 
 

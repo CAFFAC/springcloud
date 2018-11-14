@@ -1,0 +1,15 @@
+server:
+  port: 8763
+spring:
+  application:
+    name: data-service
+eureka:
+  client:
+    security:
+      basic:
+        user: caffac
+        password: cheng1990
+    serviceUrl:
+      defaultZone: http://${eureka.client.security.basic.user}:${eureka.client.security.basic.password}@47.107.231.96:8761/eureka/,http://${eureka.client.security.basic.user}:${eureka.client.security.basic.password}@47.100.210.186:8761/eureka/
+  instance:
+    prefer-ip-address: true
